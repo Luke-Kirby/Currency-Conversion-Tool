@@ -1,2 +1,44 @@
-<p>home works!</p>
-<app-card></app-card>
+<div class="page-background">
+
+    <h1>Currency Converter</h1>
+
+    <app-card>
+        <!-- Place HTML to go inside of card component here -->
+
+        <div class="input-container">
+
+            <div class="card-divider">
+
+                <span>From</span>
+
+                <app-select [label]="'Select currency'"></app-select>
+
+                <app-userInput [label]="'Enter amount'">
+                </app-userInput>
+
+            </div>
+
+            <!-- This button is a component unique to this page - will make it standalone for simplicity -->
+            <button matIconButton>  
+                <mat-icon>swap_horiz</mat-icon>
+            </button>
+
+            <div class="card-divider">
+
+                <span>To</span>
+
+                <app-select [label]="'Select currency'"></app-select>
+
+                <app-userInput [label]="'Result'" [readonly]="true">
+                </app-userInput>
+
+            </div>
+
+        </div>
+
+        <div class="button-container">
+            <app-button [label]="'Calculate'"></app-button>
+        </div>
+
+    </app-card>
+</div>
