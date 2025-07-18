@@ -1,6 +1,6 @@
 <mat-form-field>
   <mat-label>{{ label }}</mat-label>
-  <mat-select [value]="null">
+  <mat-select [value]="null" (selectionChange)="onSelectionChange($event.value)">
     <mat-option *ngIf="isLoading">Loading currencies...</mat-option>
     <ng-container *ngIf="!isLoading">
         <mat-option *ngFor="let currency of data" [value]="currency" >

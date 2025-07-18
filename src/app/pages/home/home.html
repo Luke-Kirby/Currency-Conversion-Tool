@@ -14,10 +14,13 @@
                 <app-select 
                     [label]="'Select currency'" 
                     [data]="currencies" 
-                    [isLoading]="isCurrencyLoading">
+                    [isLoading]="isCurrencyLoading"
+                    (selectedCurr)="selectedFromCurr = $event">
                 </app-select>
 
-                <app-userInput [label]="'Enter amount'">
+                <app-userInput
+                    [label]="'Enter amount'"
+                    (inputNumber)="fromAmount = $event">
                 </app-userInput>
 
             </div>
@@ -34,12 +37,14 @@
                 <app-select 
                     [label]="'Select currency'"
                     [data]="currencies" 
-                    [isLoading]="isCurrencyLoading">
+                    [isLoading]="isCurrencyLoading"
+                    (selectedCurr)="selectedToCurr = $event">
                 </app-select>
 
                 <app-userInput 
                     [label]="'Result'" 
-                    [readonly]="true">
+                    [readonly]="true"
+                    [value]="toAmount">
                 </app-userInput>
 
             </div>
@@ -47,7 +52,8 @@
         </div>
 
         <div class="button-container">
-            <app-button [label]="'Calculate'"></app-button>
+            <app-button *ngIf="!isConversionLoading" [label]="'Calculate'" (click)="calculateConversion()" ></app-button>
+            <mat-spinner *ngIf="isConversionLoading" [diameter]="40" style="padding-right: 5rem;"></mat-spinner>
         </div>
 
     </app-card>
