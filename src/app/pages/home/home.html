@@ -11,7 +11,11 @@
 
                 <span>From</span>
 
-                <app-select [label]="'Select currency'"></app-select>
+                <app-select 
+                    [label]="'Select currency'" 
+                    [data]="currencies" 
+                    [isLoading]="isCurrencyLoading">
+                </app-select>
 
                 <app-userInput [label]="'Enter amount'">
                 </app-userInput>
@@ -27,9 +31,15 @@
 
                 <span>To</span>
 
-                <app-select [label]="'Select currency'"></app-select>
+                <app-select 
+                    [label]="'Select currency'"
+                    [data]="currencies" 
+                    [isLoading]="isCurrencyLoading">
+                </app-select>
 
-                <app-userInput [label]="'Result'" [readonly]="true">
+                <app-userInput 
+                    [label]="'Result'" 
+                    [readonly]="true">
                 </app-userInput>
 
             </div>

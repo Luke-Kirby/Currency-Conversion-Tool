@@ -10,6 +10,6 @@ import { MatInputModule } from '@angular/material/input';
 export class UserInput {
    @Input() label: string = '';
    @Input() readonly: boolean = false;
-   @Input() value: number = 0;
+   @Input() value: number | null = null;
 
 }
