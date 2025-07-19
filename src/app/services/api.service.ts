@@ -5,10 +5,12 @@ import { CurrenciesResponse, ConvertResponse } from './api-interface';
 
 //The easiest way for me to use my APIs is to create a dedicated service. Using rxjs, I can subscribe to
 //observables to make my code a-syncronous. I just have to call my service in my app where I want to use it
+//Also no need to unsubscribe from these services because the user will never leave this page
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class ApiService {
   // For a real application we would securely provide the sensitive data below
   private readonly BASE_URL = 'https://api.currencybeacon.com/v1';
@@ -32,7 +34,7 @@ export class ApiService {
     });
   }
 
-    //I got this information from the link's documentation
+  //I got this information from the link's documentation
   convertCurrency(from: string, to: string, amount: number): Observable<ConvertResponse> {
     const params = new HttpParams()
       .set('from', from)
@@ -44,5 +46,4 @@ export class ApiService {
       params,
     });
   }
-
 }

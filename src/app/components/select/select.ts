@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { Currency } from '../../services/api-interface';
@@ -13,11 +13,12 @@ export class Select {
   @Input() label: string = '';
   @Input() data: Currency[] = [];
   @Input() isLoading: boolean = false;
+  @Input() value: Currency | null = null
   
+  //Send the selected currency back to home component
   @Output() selectedCurr = new EventEmitter<Currency>();
 
-  onSelectionChange(value: Currency) {
+  onSelectionChange(value: Currency): void {
     this.selectedCurr.emit(value);
   }
-
 }

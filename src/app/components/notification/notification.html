@@ -1,0 +1,7 @@
+<!-- Easiest way to manipulate the color is to use Angular's ngStyle -->
+<div class="error-container" [ngStyle]="{ color: messageColor[messageType]}" >
+
+    <mat-icon>{{messageType}}</mat-icon>
+    <span>{{message}}</span>
+
+</div>

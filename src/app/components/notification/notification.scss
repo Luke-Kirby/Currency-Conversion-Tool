@@ -1,0 +1,16 @@
+$notificationBackground: white;
+
+.error-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.25rem;
+    background-color: $notificationBackground;
+}
+
+span {
+    padding-left: 1rem;
+}

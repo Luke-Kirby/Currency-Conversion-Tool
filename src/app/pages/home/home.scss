@@ -1,10 +1,13 @@
+// Usually would import colours, but for simplicity just define here
+$background-accent:   #E3EBEE;
+
 .page-background {
     position: absolute;
-    inset: 0rem;
-    background-color: #E3EBEE;
     display: flex;
     align-items: center;
     flex-direction: column;
+    inset: 0rem;
+    background-color: $background-accent;
 }
 
 .input-container {

@@ -1,4 +1,6 @@
-<mat-form-field class="example-full-width">
+<mat-form-field>
+
     <mat-label>{{label}}</mat-label>
-    <input matInput min="0" [value]="readonly? value: null" [readonly]="readonly" type="number" (input)="onNumberInput($event)">
+    <input matInput min="0" [value]="value" [readonly]="readonly" type="number" (input)="onNumberInput($event)">
+
 </mat-form-field>

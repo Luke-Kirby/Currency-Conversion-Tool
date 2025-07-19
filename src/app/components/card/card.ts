@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-card',
@@ -8,5 +8,4 @@ import {MatCardModule} from '@angular/material/card';
   styleUrl: './card.scss'
 })
 export class Card {
-
 }

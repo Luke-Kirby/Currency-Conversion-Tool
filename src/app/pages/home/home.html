@@ -3,10 +3,9 @@
     <h1>Currency Converter</h1>
 
     <app-card>
-        <!-- Place HTML to go inside of card component here -->
+        <!-- Inject HTML to go inside of card component -->
 
         <div class="input-container">
-
             <div class="card-divider">
 
                 <span>From</span>
@@ -15,18 +14,20 @@
                     [label]="'Select currency'" 
                     [data]="currencies" 
                     [isLoading]="isCurrencyLoading"
+                    [value]="selectedFromCurr"
                     (selectedCurr)="selectedFromCurr = $event">
                 </app-select>
 
                 <app-userInput
                     [label]="'Enter amount'"
-                    (inputNumber)="fromAmount = $event">
+                    (inputNumber)="fromAmount = $event"
+                    [value]="fromAmount">
                 </app-userInput>
 
             </div>
 
             <!-- This button is a component unique to this page - will make it standalone for simplicity -->
-            <button matIconButton>  
+            <button matIconButton (click)="swapCurrencies()">  
                 <mat-icon>swap_horiz</mat-icon>
             </button>
 
@@ -38,6 +39,7 @@
                     [label]="'Select currency'"
                     [data]="currencies" 
                     [isLoading]="isCurrencyLoading"
+                    [value]="selectedToCurr"
                     (selectedCurr)="selectedToCurr = $event">
                 </app-select>
 
@@ -48,13 +50,20 @@
                 </app-userInput>
 
             </div>
-
         </div>
 
         <div class="button-container">
-            <app-button *ngIf="!isConversionLoading" [label]="'Calculate'" (click)="calculateConversion()" ></app-button>
+            <app-button *ngIf="!isConversionLoading" [label]="'Calculate'" (click)="calculateConversion()"></app-button>
+            <!-- For simplicity lets just put the loading icon next to the button -->
             <mat-spinner *ngIf="isConversionLoading" [diameter]="40" style="padding-right: 5rem;"></mat-spinner>
         </div>
 
     </app-card>
+
+    <app-notification 
+        *ngIf="showNotification"
+        [message]="notificationMessage"
+        [messageType]="notificationType">
+    </app-notification>
+
 </div>

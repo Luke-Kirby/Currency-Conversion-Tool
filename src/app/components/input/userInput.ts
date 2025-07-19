@@ -12,11 +12,12 @@ export class UserInput {
    @Input() readonly: boolean = false;
    @Input() value: number | null = null;
 
+   //Send the inputted number back to home component
    @Output() inputNumber = new EventEmitter<number>();
    
-    onNumberInput(event: Event) {
-      const inputElement = event.target as HTMLInputElement;
-      const value: number = inputElement.valueAsNumber;
-      this.inputNumber.emit(value);
+  onNumberInput(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const value: number = inputElement.valueAsNumber;
+    this.inputNumber.emit(value);
   }
 }

@@ -1,11 +1,20 @@
 <mat-form-field>
+
   <mat-label>{{ label }}</mat-label>
-  <mat-select [value]="null" (selectionChange)="onSelectionChange($event.value)">
+
+  <mat-select [value]="value" (selectionChange)="onSelectionChange($event.value)">
+
+    <!-- Simple way to implement loading functionality for this component -->
     <mat-option *ngIf="isLoading">Loading currencies...</mat-option>
+
+    <!-- Better to use ng-container to not add unnecicery elements to the Dom -->
     <ng-container *ngIf="!isLoading">
+
+        <!-- Loop the list of currency objects. Save the whole object as the value -->
         <mat-option *ngFor="let currency of data" [value]="currency" >
           {{ currency.name }} ({{ currency.short_code }})
         </mat-option>
+
     </ng-container>
   </mat-select>
 </mat-form-field>
