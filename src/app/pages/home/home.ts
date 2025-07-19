@@ -91,7 +91,7 @@ export class Home implements OnInit {
     });
   }
 
-  //Some additional functions below that were quick and easy to make
+  //Some easy wins below that were quick to make
 
   swapCurrencies(): void {
     //Swap the values of the variables

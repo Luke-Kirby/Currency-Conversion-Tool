@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CurrenciesResponse, ConvertResponse } from './api-interface';
 
-//The easiest way for me to use my APIs is to create a dedicated service. Using rxjs, I can subscribe to
+//The easiest way for me to use these APIs is to create a dedicated service. Using rxjs, I can subscribe to
 //observables to make my code a-syncronous. I just have to call my service in my app where I want to use it
 //Also no need to unsubscribe from these services because the user will never leave this page
 
