@@ -15,14 +15,12 @@
                     [data]="currencies" 
                     [isLoading]="isCurrencyLoading"
                     [value]="selectedFromCurr"
-                    (selectedCurr)="selectedFromCurr = $event">
-                </app-select>
+                    (selectedCurr)="selectedFromCurr = $event" />
 
                 <app-userInput
                     [label]="'Enter amount'"
                     (inputNumber)="fromAmount = $event"
-                    [value]="fromAmount">
-                </app-userInput>
+                    [value]="fromAmount" />
 
             </div>
 
@@ -40,22 +38,26 @@
                     [data]="currencies" 
                     [isLoading]="isCurrencyLoading"
                     [value]="selectedToCurr"
-                    (selectedCurr)="selectedToCurr = $event">
-                </app-select>
+                    (selectedCurr)="selectedToCurr = $event" />
 
                 <app-userInput 
                     [label]="'Result'" 
                     [readonly]="true"
-                    [value]="toAmount">
-                </app-userInput>
+                    [value]="toAmount" />
 
             </div>
         </div>
 
         <div class="button-container">
-            <app-button *ngIf="!isConversionLoading" [label]="'Calculate'" (click)="calculateConversion()"></app-button>
+            <app-button
+                *ngIf="!isConversionLoading"
+                [label]="'Calculate'"
+                (click)="calculateConversion()" />
             <!-- For simplicity lets just put the loading icon next to the button -->
-            <mat-spinner *ngIf="isConversionLoading" [diameter]="40" style="padding-right: 5rem;"></mat-spinner>
+            <mat-spinner
+                *ngIf="isConversionLoading"
+                [diameter]="40"
+                style="padding-right: 5rem;" />
         </div>
 
     </app-card>
@@ -63,7 +65,6 @@
     <app-notification 
         *ngIf="showNotification"
         [message]="notificationMessage"
-        [messageType]="notificationType">
-    </app-notification>
+        [messageType]="notificationType" />
 
 </div>

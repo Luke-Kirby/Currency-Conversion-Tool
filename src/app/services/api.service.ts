@@ -13,8 +13,10 @@ import { CurrenciesResponse, ConvertResponse } from './api-interface';
 
 export class ApiService {
   // For a real application we would securely provide the sensitive data below
-  private readonly BASE_URL = 'https://api.currencybeacon.com/v1';
-  private readonly API_KEY = 'barkNgA7Sc2wmS5uXufO2I8KqSq5hwiD';
+  // This could be set via global variables set on the hosting provider
+  private readonly BASE_URL =  'https://api.currencybeacon.com/v1';
+  // This could be populate through secure api calls
+  private API_KEY = 'barkNgA7Sc2wmS5uXufO2I8KqSq5hwiD';
 
   constructor(private http: HttpClient) { }
 

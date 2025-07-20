@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { Currency } from '../../services/api-interface';
 
+// A good example of why using wrapper components is helpful
+
 @Component({
   selector: 'app-select',
   imports: [CommonModule, MatSelectModule],

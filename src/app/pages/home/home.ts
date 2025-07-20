@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+// for the purpose of this app, I have not set up an alias, ie @ - but if this was a production app, I would set up a sensible alias pattern
 import { ApiService } from '../../services/api.service';
 import { Card } from '../../components/card/card';
 import { Select } from '../../components/select/select';
@@ -42,6 +43,7 @@ export class Home implements OnInit {
 
   //Function that runs as the page initializes
   ngOnInit(): void {
+    // this does not need to be asynchronous - because we are subscribing to the data, we can manipulate the page dynmically
     this.loadCurrencies();
   }
 
@@ -54,7 +56,8 @@ export class Home implements OnInit {
         this.currencies = data.response;
         this.isCurrencyLoading = false;
       },
-      error: (err: any) => {
+      error: (err: unknown) => {
+        // we could catch specific errors - with if typeof ... but maybe overkill for this.
         this.showNotificationMessage("error", "There was a problem with the request")
         console.error('Error loading currencies:', err);
         this.isCurrencyLoading = false;
@@ -83,7 +86,7 @@ export class Home implements OnInit {
         this.toAmount = data.response.value;
         this.isConversionLoading = false;
       },
-      error: (err: any) => {
+      error: (err: unknown) => {
         this.showNotificationMessage("error", "There was a problem with the request.")
         console.error('Conversion failed:', err);
         this.isConversionLoading = false;
