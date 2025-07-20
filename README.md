@@ -7,7 +7,7 @@ This project was generated using Angular Version 20.1.1.
 To start a local development server, run:
 
 ```
-ng serve
+npm run start
 ```
 
 Once the server is running, open your browser and navigate to 
@@ -17,5 +17,5 @@ Once the server is running, open your browser and navigate to
 To run the unit tests, run
 
 ```
-ng test
+npm run test
 ```
